@@ -94,9 +94,9 @@
     }
 
     var data = response.getDataTable();
-    if(data.ng.length > 2){
+    /*if(data.ng.length > 2){
       data.setColumnProperty(2, 'role', 'annotation');
-    }
+    }*/
     //     ({type: 'string', role: 'tooltip'});
     var chart = new google.visualization.LineChart(document.getElementById(divId));
     chart.draw(data,
