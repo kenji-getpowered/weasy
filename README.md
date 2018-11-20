@@ -12,7 +12,40 @@ Follow thoses steps to create an account
 TODO
 
 ### Setting up the daily mail
-TODO
+
+go to 
+
+Insert the following code, changing all variables
+
+```javascript
+function sendFormEmail() {
+    var toEmailAddress = "<YOUR_TEAM@mail.com>";
+    var htmlMessage = HtmlService.createHtmlOutputFromFile("TeamMood.html").getContent();
+    var subject = "Beyond Team Mood";
+    var message = "Hey, please tell us how you feel. It's important for us to gather this to be able to react properly";
+    MailApp.sendEmail(toEmailAddress, subject, message, {
+      htmlBody: htmlMessage
+    });
+}
+
+
+function createTriggers() {
+   var days = [ScriptApp.WeekDay.MONDAY, ScriptApp.WeekDay.TUESDAY,
+               ScriptApp.WeekDay.WEDNESDAY, ScriptApp.WeekDay.THURSDAY,                                            
+               ScriptApp.WeekDay.FRIDAY];
+   for (var i=0; i<days.length; i++) {
+      ScriptApp.newTrigger("sendFormEmail")
+               .timeBased().onWeekDay(days[i])
+               .atHour(16).create();
+   }
+}
+```
+
+
+You can see a working example here : [https://docs.google.com/spreadsheets/d/1KCWLYyU49Tmf2zsnl302bfmM608GQ3hnbZAbliObnWc/edit?usp=sharing]
+
+
+
 ### Setting up a new web page
 Copy the code from index.html then change the params. Host it wherever you can and here we go.
 
