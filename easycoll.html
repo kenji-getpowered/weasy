@@ -126,7 +126,8 @@
     view.setColumns([0,2]);
     var table = new google.visualization.Table(document.getElementById(divId));
     table.draw(view, {
-      sortColumn: 1
+      sortColumn: 0, 
+      sortAscending:false
     });
   }
 
