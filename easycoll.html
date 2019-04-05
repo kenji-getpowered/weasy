@@ -58,7 +58,7 @@
   * @param columns an array of columns to be selected
   */
   function getQuery(...columns) {
-    return encodeURIComponent('select ' + columns.join(",") + ' where datediff(now()-30, A)>0');
+    return encodeURIComponent('select ' + columns.join(",") + ' where datediff(now()-60, A)<0');
   }
 
   function initialize() {
